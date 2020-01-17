@@ -6,3 +6,12 @@
     - name: Hello Message
       debug:
         msg: "Hello World!"
+    - name: Check that a page returns a status 200
+      uri:
+        url: https://www.google.com
+        return_content: yes
+      register: result
+    - name: Output of Url query
+      debug:
+        var: result
+        verbosity: 2
